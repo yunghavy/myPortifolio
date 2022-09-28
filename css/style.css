@@ -60,6 +60,29 @@ img {
 strong {
     font-weight: var(--fw-bold)
 }
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+/* for links,buttons */
+
+.btn {
+    display: inline-block;
+    padding: .5em 1.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
 
 /* Typography */
 h1,
@@ -72,6 +95,7 @@ h3 {
 h1 {font-size: var(--fs-h1)}
 h2 {font-size: var(--fs-h2)}
 h3 {font-size: var(--fs-h3)}
+
 
 .section__title{
     margin-bottom: .25em;
@@ -148,5 +172,105 @@ nav {
     }
 }
 
+/* Styling my services section */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(../images/jafferkimutai_188702584_1185449178566023_1817144506143821065_n.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: var(--clr-light);
+    text-align: center;
+
+}
+
+.section__title--services {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+.section__title--services::after { 
+    content: '';
+    display: block;
+    width: 3em;
+    height:1px;
+    margin: 0.5em auto 1em;
+    background: currentColor;
+    opacity: 0.25;
+    /* to match theme */
+
+}
+
+.services {
+    margin-bottom: 4em;
+}
+
+
+.service {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .services {
+        display:flex;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service + .service {
+        margin-left: 2em;
+    }
+}
+
+
+/* About me Styling */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display:grid;
+        grid-template-columns:1fr 200px;
+        grid-template-areas:
+         "title img"
+         "subtitle img"
+         "text img";
+         grid-column-gap: 2em;
+
+    }
+
+   
+    .section__title--about {
+        grid-area: title;
+        
+    }
+
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left:-1em;
+        width:calc(100% + 2em);
+        padding-left: 1em;
+        /* to not touch the image */
+        padding-right: calc(200px + 4em);
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        /* stay on top */
+        z-index: 2;
+    }
+}
 
 
